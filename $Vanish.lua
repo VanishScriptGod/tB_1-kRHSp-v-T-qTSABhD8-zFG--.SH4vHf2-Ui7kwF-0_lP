@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Made by Vanish#7242", "BloodTheme")
+local Window = Library.CreateLib("KOed#7242 Made this", "BloodTheme")
 --LightTheme
 --DarkTheme
 --GrapeTheme
@@ -848,10 +848,61 @@ end)
     
 end)
 
+--mm2 end
+
+
+--bloxfruits start
+
+
 local Main = Window:NewTab("Bloxfruits")
 local BloxFruitsSection = Main:NewSection("Bloxfruits")
 
 
-    BloxFruitsSection:NewButton("Yes", "Yes", function()
+    BloxFruitsSection:NewButton("Mukuro", "Yes", function()
  loadstring(game:HttpGet"https://raw.githubusercontent.com/xDepressionx/Free-Script/main/AllScript.lua")()
+end)
+
+ BloxFruitsSection:NewButton("Strike", "Yes", function()
+   getgenv().Color = Color3.fromRGB(0, 128, 255)
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/StormSKz12/StirkeHub1/main/Gameincluded"))()
+end)
+
+ BloxFruitsSection:NewButton("SMZ", "Yes", function()
+ loadstring(game:HttpGet("https://raw.githubusercontent.com/Frerfgzz/free-script/main/SMZHUBv2BETA"))()
+ end)
+ 
+--bloxfruits end
+
+
+
+
+
+ 
+ --Dinosaur sim start
+ 
+ 
+ 
+ local Main = Window:NewTab("DinoSaur Sim")
+local DinoSimSection = Main:NewSection("DinoSaur Sim")
+
+DinoSimSection:NewButton("inf money ", "gives unstoped able money", function()
+--Variables
+plr = game.Players.LocalPlayer.Character
+AttackRemote = game:GetService("ReplicatedStorage").RemoteEvents.AttackRemoteEvent
+
+--Script
+plr.HumanoidRootPart.CFrame = game.workspace.Monsters["Monster_01"].Food.Apple.RootPart.CFrame
+task.wait(.2)
+AttackRemote:FireServer("AttackStaticFood",workspace.Monsters.Monster_01.Food.Apple,99999999,"Dinosaur1_3_1")
+end)
+
+--dinosaur sim end
+ 
+
+--osu start
+local Main = Window:NewTab("Rosu!Mania")
+local OsuSection = Main:NewSection("Rosu!Mania")
+
+OsuSection:NewButton("Auto Player", "Best auto player", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/noobscripter38493/rosu-perfect-autoplayer/main/rosu%20auto%20player.lua"))()
 end)
