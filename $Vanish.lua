@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Made by Vanish#7242", "BloodTheme")
+local Window = Library.CreateLib("KOed#7242 MADE THIS SHIT", "BloodTheme")
 --LightTheme
 --DarkTheme
 --GrapeTheme
