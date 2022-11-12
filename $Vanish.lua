@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("KOed#7242 MADE THIS SHIT", "BloodTheme")
+local Window = Library.CreateLib("KOed#7242 Made this", "DarkTheme")
 --LightTheme
 --DarkTheme
 --GrapeTheme
@@ -905,4 +905,493 @@ local OsuSection = Main:NewSection("Rosu!Mania")
 
 OsuSection:NewButton("Auto Player", "Best auto player", function()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/noobscripter38493/rosu-perfect-autoplayer/main/rosu%20auto%20player.lua"))()
+end)
+
+
+local Main = Window:NewTab("Hood Modded")
+local HoodModdedSection = Main:NewSection("Hood modded Guis")
+
+HoodModdedSection:NewButton("WinterTime", "Works for all hood games", function()
+	loadstring(game:HttpGet"https://raw.githubusercontent.com/Wheeleee/AIMWARE/main/Startup")()
+end)
+
+HoodModdedSection:NewButton("Vertical", "Its alright", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/niqu1337/vertical/main/core/script.lua"))()
+end)
+
+HoodModdedSection:NewButton("Oblivion", "Really good lock", function()
+end)
+
+HoodModdedSection:NewButton("nyula", "Good overall and really customizable", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyuladhm", true))()
+end)
+--end of DH
+--streamables
+local Main = Window:NewTab("Streamable lock")
+local StreamableSection = Main:NewSection("Steamables")
+
+StreamableSection:NewButton("Streamable 1", "Q to turn off and on", function()
+	local Aiming = loadstring(game:HttpGet("https://pastebin.com/raw/YmUFTisy", true))()
+	Aiming.TeamCheck(false)
+	 
+	
+	local Workspace = game:GetService("Workspace")
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	local UserInputService = game:GetService("UserInputService")
+	
+	
+	local LocalPlayer = Players.LocalPlayer
+	local Mouse = LocalPlayer:GetMouse()
+	local CurrentCamera = Workspace.CurrentCamera
+	
+	local DaHoodSettings = {
+		SilentAim = true,
+		AimLock = false,
+		Prediction = 0.14,
+		AimLockKeybind = Enum.KeyCode.Q
+	}
+	getgenv().DaHoodSettings = DaHoodSettings
+	
+	
+	function Aiming.Check()
+	-------------
+		if not (Aiming.Enabled == true and Aiming.Selected ~= LocalPlayer and Aiming.SelectedPart ~= nil) then
+			return false
+		end
+	
+		-- // Check if downed
+		local Character = Aiming.Character(Aiming.Selected)
+		local KOd = Character:WaitForChild("BodyEffects")["K.O"].Value
+		local Grabbed = Character:FindFirstChild("GRABBING_CONSTRAINT") ~= nil
+	
+		-- // Check B
+		if (KOd or Grabbed) then
+			return false
+		end
+	
+		-- //
+		return true
+	end
+	
+	-- // Hook
+	local __index
+	__index = hookmetamethod(game, "__index", function(t, k)
+		-- // Check if it trying to get our mouse's hit or target and see if we can use it
+		if (t:IsA("Mouse") and (k == "Hit" or k == "Target") and Aiming.Check()) then
+			local SelectedPart = Aiming.SelectedPart
+	
+			-- // Hit/Target
+			if (DaHoodSettings.SilentAim and (k == "Hit" or k == "Target")) then
+				-- // Hit to account prediction
+				local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+	
+				-- // Return modded val
+				return (k == "Hit" and Hit or SelectedPart)
+			end
+		end
+	
+		-- // Return
+		return __index(t, k)
+	end)
+	
+	-- // Aimlock
+	RunService:BindToRenderStep("AimLock", 0, function()
+		if (DaHoodSettings.AimLock and Aiming.Check() and UserInputService:IsKeyDown(DaHoodSettings.AimLockKeybind)) then
+			-- // Vars
+			local SelectedPart = Aiming.SelectedPart
+	
+			-- // Hit to account prediction
+			local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+	
+			CurrentCamera.CFrame = CFrame.lookAt(CurrentCamera.CFrame.Position, Hit.Position)
+		end
+		end)
+end)
+
+StreamableSection:NewButton("Streamable 2", "q off/on", function()
+	local hotkey = "Q" -- toggle key
+	local mouse = game.Players.LocalPlayer:GetMouse()
+	
+	
+	
+	mouse.KeyDown:Connect(function(key)
+	if key == hotkey then
+	if getgenv().ValiantAimHacks.SilentAimEnabled == true then
+	 getgenv().ValiantAimHacks.SilentAimEnabled = false
+	else
+	getgenv().ValiantAimHacks.SilentAimEnabled = true
+	end
+	end
+	end)
+	
+	
+	-- // Services
+	local Players = game:GetService("Players")
+	
+	-- // Vars
+	local LocalPlayer = Players.LocalPlayer
+	local accomidationfactor = 0.12567724521
+	
+	-- // Silent Aim Module
+	local SilentAim = loadstring(game:HttpGet("https://pastebin.com/raw/2f0mGbMP"))()
+	SilentAim.TeamCheck = false
+	-- // Metatable vars
+	local mt = getrawmetatable(game)
+	local backupindex = mt.__index
+	setreadonly(mt, false)
+	
+	-- // Check if player is down
+	SilentAim.checkSilentAim = function()
+		local checkA = (SilentAim.SilentAimEnabled == true and SilentAim.Selected ~= LocalPlayer)
+		local playerCharacter = SilentAim.Selected.Character
+		local daHood = (playerCharacter.BodyEffects["K.O"].Value == false or playerCharacter:FindFirstChild("GRABBING_CONSTRAINT") ~= nil)
+	
+		return (checkA and daHood)
+	end
+	
+	-- // Hook
+	mt.__index = newcclosure(function(t, k)
+		if (t:IsA("Mouse") and (k == "Hit")) then
+			print(t, k)
+			local CPlayer = SilentAim.Selected
+			if (SilentAim.checkSilentAim()) then
+				if (CPlayer.Character:FindFirstChild("HumanoidRootPart")) then
+					return {p=(CPlayer.Character.HumanoidRootPart.CFrame.p+(CPlayer.Character.HumanoidRootPart.Velocity*accomidationfactor))}
+				end
+			end
+		end
+		return backupindex(t, k)
+	end)
+	
+	-- // Revert
+	setreadonly(mt, true)
+	getgenv().ValiantAimHacks.FOV = 9.2
+end)
+
+
+StreamableSection:NewButton("Streamable 3", "q off/on", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/GuizzyisbackV2LOL/LegitVersionLua/main/LuaRoblox", true))()
+end)
+
+StreamableSection:NewButton("Streamable 4", "q off/on", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/hharu02/ssadsdasd/main/asdas"))()
+DaHoodSettings.Prediction = 0.135
+Aiming.TargetPart = {"Head", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "HumanoidRootPart", "LeftUpperLeg", "RightLowerLeg", "RightFoot", "LowerTorso"}
+Aiming.FOV = 17.4
+Aiming.FOVSides = 25
+Aiming.HitChance = 110
+Aiming.ShowFOV = falsew
+end)
+
+StreamableSection:NewButton("Slient Streamable 5", "q off/on", function()
+-- // Dependencies
+_G.PRED = 0.025
+local Aiming = loadstring(game:HttpGet("https://gist.githubusercontent.com/s17tzz/b3360969505c1f0f18950c1e1feb474f/raw/3e9e27e5856ef41efe14139ee5ef4d0abd36bda1/xp2jgvJNRxNKkM.lua"))()
+Aiming.TeamCheck(false)
+Aiming.ShowFOV = false
+Aiming.FOV = 25
+-- // Services
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+
+-- // Vars
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local CurrentCamera = Workspace.CurrentCamera
+
+local DaHoodSettings = {
+    SilentAim = true,
+    AimLock = false,
+    Prediction = 0.025,
+    AimLockKeybind = Enum.KeyCode.Q
+}
+getgenv().DaHoodSettings = DaHoodSettings
+
+-- // Overwrite to account downed
+function Aiming.Check()
+    -- // Check A
+    if not (Aiming.Enabled == true and Aiming.Selected ~= LocalPlayer and Aiming.SelectedPart ~= nil) then
+        return false
+    end
+
+    -- // Check if downed
+    local Character = Aiming.Character(Aiming.Selected)
+    local KOd = Character:WaitForChild("BodyEffects")["K.O"].Value
+    local Grabbed = Character:FindFirstChild("GRABBING_CONSTRAINT") ~= nil
+
+    -- // Check B
+    if (KOd or Grabbed) then
+        return false
+    end
+
+    -- //
+    return true
+end
+
+-- // Hook
+local __index
+__index = hookmetamethod(game, "__index", function(t, k)
+    -- // Check if it trying to get our mouse's hit or target and see if we can use it
+    if (t:IsA("Mouse") and (k == "Hit" or k == "Target") and Aiming.Check()) then
+        -- // Vars
+        local SelectedPart = Aiming.SelectedPart
+
+        -- // Hit/Target
+        if (DaHoodSettings.SilentAim and (k == "Hit" or k == "Target")) then
+            -- // Hit to account prediction
+            local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+
+            -- // Return modded val
+            return (k == "Hit" and Hit or SelectedPart)
+        end
+    end
+
+    -- // Return
+    return __index(t, k)
+end)
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+mouse.KeyDown:Connect(function(key)
+    if key == "v" then
+        if Aiming.Enabled == false then
+        Aiming.Enabled = true
+        else
+        Aiming.Enabled = false
+        end
+    end
+end)
+
+
+RunService.RenderStepped:Connect(function()
+
+    local ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+    local Value = tostring(ping)
+    local pingValue = Value:split(" ")
+    local PingNumber = pingValue[1]
+    
+    DaHoodSettings.Prediction = PingNumber / 1000 + _G.PRED
+    
+                    if Aiming.Character.Humanoid.Jump == true and AimlockTarget.Character.Humanoid.FloorMaterial == Enum.Material.Air then
+                    Aiming.TargetPart = "RightFoot"
+                else
+                    Aiming.Character:WaitForChild("Humanoid").StateChanged:Connect(function(new)
+                    
+                    if new == Enum.HumanoidStateType.Freefall then
+                    Aiming.TargetPart = "RightFoot"
+                    else
+                    
+                    Aiming.TargetPart = Aiming.SelectedPart
+                    
+                    end
+                    
+                    end)
+                    
+                end
+
+end)        
+end)
+
+StreamableSection:NewButton("CamLock Streamable 6", "q off/on", function()
+
+	_G.PRED = 0.0345
+
+	local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/Stefanuk12/Aiming/main/Examples/AimLock.lua"))()
+	local AimingChecks = Aiming.Checks
+	local AimingSelected = Aiming.Selected
+	local AimLockSettings = Aiming.AimLock
+	
+	Aiming.Settings.FOVSettings.Scale = 30 -- fov
+	Aiming.ShowCredits = false
+	Aiming.HitChance = 70 -- Hitchance
+	Aiming.Settings.FOVSettings.Enabled = false
+	Aiming.Settings.TracerSettings.Enabled = false
+	Aiming.UpdateFOV()
+	Aiming.TargetParts = {"Head","UpperTorso","LowerTorso","RightUpperLeg","LeftUpperLeg","LeftLowerLeg","RightLowerLeg","RightFoot","LeftFoot"}
+	Aiming.UpdateTracer()
+	Aiming.AimLock.Enabled = false
+	
+	-- // Services
+	local Workspace = game:GetService("Workspace")
+	
+	-- // Vars
+	local CurrentCamera = Workspace.CurrentCamera
+	
+	local DaHoodSettings = {
+		Prediction = 0.165,
+	
+		SilentAim = true,
+	
+		AimLock = AimLockSettings,
+		BeizerLock = {
+			Smoothness = 0.05,
+			CurvePoints = {
+				Vector2.new(0.83, 0),
+				Vector2.new(0.17, 1)
+			}
+		}
+	}
+	getgenv().DaHoodSettings = DaHoodSettings
+	
+	-- //
+	local function ApplyPredictionFormula(SelectedPart)
+		return SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+	end
+	
+	-- // Hook
+	local __index
+	__index = hookmetamethod(game, "__index", function(t, k)
+		-- // Check if it trying to get our mouse's hit or target and see if we can use it
+		if (t:IsA("Mouse") and (k == "Hit" or k == "Target") and AimingChecks.IsAvailable() and DaHoodSettings.SilentAim) then
+			-- // Vars
+			local SelectedPart = AimingSelected.Part
+			local Hit = ApplyPredictionFormula(SelectedPart)
+	
+			-- // Return modded val
+			return (k == "Hit" and Hit or SelectedPart)
+		end
+	
+		-- // Return
+		return __index(t, k)
+	end)
+	
+	-- // Aimlock
+	function AimLockSettings.AimLockPosition(CameraMode)
+		-- // Vars
+		local Position
+		local BeizerData = {}
+	
+		-- // Hit to account prediction
+		local Hit = ApplyPredictionFormula(AimingSelected.Part)
+		local HitPosition = Hit.Position
+	
+		-- //
+		if (CameraMode) then
+			Position = HitPosition
+		else
+			-- // Convert 3d -> 2d
+			local Vector, _ = CurrentCamera:WorldToViewportPoint(HitPosition)
+			local Vector2D = Vector2.new(Vector.X, Vector.Y)
+	
+			-- // Vars
+			local BeizerLock = DaHoodSettings.BeizerLock
+	
+			-- //
+			Position = Vector2D
+			BeizerData = {
+				Smoothness = BeizerLock.Smoothness,
+				CurvePoints = BeizerLock.CurvePoints
+			}
+		end
+	
+		-- // Return
+		return Position, BeizerData
+	end
+	
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	
+	mouse.KeyDown:Connect(function(key)
+	
+		if key == "v" then
+			
+	
+	
+			if DaHoodSettings.SilentAim == false then
+			
+			DaHoodSettings.SilentAim = true
+			
+			else
+				
+			DaHoodSettings.SilentAim = false
+	
+			end
+	
+		end
+	
+	
+	end)
+	
+	local ping 
+	local Value 
+	local pingValue 
+	local PingNumber 
+	
+	game:GetService("RunService").RenderStepped:Connect(function()
+		
+		 ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+		 Value = tostring(ping)
+		 pingValue = Value:split(" ")
+		 PingNumber = pingValue[1]
+		
+		 DaHoodSettings.Prediction = PingNumber / 1000 + _G.PRED
+	end)
+end)
+
+StreamableSection:NewButton("Slient Streamable 7", "q off/on", function()
+-- da hood private silent aim
+local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/strongprime/discord.gg-silentaim/main/gg/silentaim",true))()
+Aiming.TeamCheck(false)
+
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+
+local LocalPlayer = Players.LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local CurrentCamera = Workspace.CurrentCamera
+
+local DaHoodSettings = {
+    SilentAim = true,
+    AimLock = false,
+    Prediction = 0.14,
+    AimLockKeybind = Enum.KeyCode.E
+}
+getgenv().DaHoodSettings = DaHoodSettings
+
+function Aiming.Check()
+    if not (Aiming.Enabled == true and Aiming.Selected ~= LocalPlayer and Aiming.SelectedPart ~= nil) then
+        return false
+    end
+
+    local Character = Aiming.Character(Aiming.Selected)
+    local KOd = Character:WaitForChild("BodyEffects")["K.O"].Value
+    local Grabbed = Character:FindFirstChild("GRABBING_CONSTRAINT") ~= nil
+
+    if (KOd or Grabbed) then
+        return false
+    end
+
+    return true
+end
+
+local __index
+__index = hookmetamethod(game, "__index", function(t, k)
+    if (t:IsA("Mouse") and (k == "Hit" or k == "Target") and Aiming.Check()) then
+        local SelectedPart = Aiming.SelectedPart
+
+        if (DaHoodSettings.SilentAim and (k == "Hit" or k == "Target")) then
+            local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+
+            return (k == "Hit" and Hit or SelectedPart)
+        end
+    end
+
+    return __index(t, k)
+end)
+
+RunService:BindToRenderStep("AimLock", 0, function()
+    if (DaHoodSettings.AimLock and Aiming.Check() and UserInputService:IsKeyDown(DaHoodSettings.AimLockKeybind)) then
+        local SelectedPart = Aiming.SelectedPart
+
+        local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+
+        CurrentCamera.CFrame = CFrame.lookAt(CurrentCamera.CFrame.Position, Hit.Position)
+    end
+    end)
 end)
