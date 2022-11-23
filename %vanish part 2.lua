@@ -40,3 +40,10 @@ local Funksection = Main:NewSection("Funy Friday")
 Funksection:NewButton("Funky Player", "Works well", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/funky-friday-autoplay/main/main.lua",true))()
 end)
+
+local Main = Window:NewTab ("GPO")
+local GPOsection = Main:NewSection("GPO main")
+
+GPOsection:NewButton("CFA", "Works well", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CFA-HUB/CFA-HUB/main/cfahubfree.lua"))()
+end)
