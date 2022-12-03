@@ -1,0 +1,301 @@
+--██████╗  ██████╗ ███████╗███████╗ ██╗ ██╗ ███████╗██████╗ ██╗  ██╗██████╗     ███╗   ███╗ █████╗ ██████╗ ███████╗    ████████╗██╗  ██╗██╗███████╗
+--██╔════╝ ██╔═══██╗██╔════╝██╔════╝████████╗╚════██║╚════██╗██║  ██║╚════██╗    ████╗ ████║██╔══██╗██╔══██╗██╔════╝    ╚══██╔══╝██║  ██║██║██╔════╝
+--██║  ███╗██║   ██║███████╗███████╗╚██╔═██╔╝   ██╔╝  █████╔╝███████║ █████╔╝    ██╔████╔██║███████║██║  ██║█████╗         ██║   ███████║██║███████╗
+--██║   ██║██║   ██║╚════██║╚════██║████████╗  ██╔╝  ██╔═══╝ ╚════██║██╔═══╝     ██║╚██╔╝██║██╔══██║██║  ██║██╔══╝         ██║   ██╔══██║██║╚════██║
+--╚██████╔╝╚██████╔╝███████║███████║╚██╔═██╔╝  ██║   ███████╗     ██║███████╗    ██║ ╚═╝ ██║██║  ██║██████╔╝███████╗       ██║   ██║  ██║██║███████║
+ --╚═════╝  ╚═════╝ ╚══════╝╚══════╝ ╚═╝ ╚═╝   ╚═╝   ╚══════╝     ╚═╝╚══════╝    ╚═╝     ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝       ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝                                                                                                                                                         
+                                                                                                                                                         
+
+ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Blissful4992/Kinetic/main/src.lua"))()
+
+local Overrides = {
+    Background = Color3.fromRGB(5, 2, 9),
+    Section_Background = Color3.fromRGB(24, 21, 39),
+
+    Dark_Borders = Color3.fromRGB(29, 18, 39),
+    Light_Borders = Color3.fromRGB(255, 255, 255),
+
+    Text_Color = Color3.fromRGB(235, 235, 235),
+
+    Accent = Color3.fromRGB(63, 0, 231),
+    Dark_Accent = Color3.fromRGB(89, 9, 177),
+}
+
+local Window = Library.NewWindow({
+    Text = "Vanish Core Project [Premium]",
+
+    WindowSize = Vector2.new(550, 450),     -- Initial Size of the Window
+    WindowPosition = Vector2.new(400, 200), -- Initial Position of the Window
+
+    ThemeOverrides = Overrides,
+    Scalable = true, -- Default : True
+    
+    -- WindowSizeCallback will fire everytime the user changes the size of the UI, 
+    -- you can use this to save the size into a config system for example
+    WindowSizeCallback = function(new)
+        print("You changed the window size to: " .. new.X .. ", " .. new.Y)
+    end,
+
+    -- WindowPositionCallback will fire everytime the user moves/drags the UI to a new position, 
+    -- you can use this to save the position into a config system for example
+    WindowPositionCallback = function(new)
+        print("You moved the window to: " .. new.X .. ", " .. new.Y)
+    end,
+
+    -- CloseCallback will fire when the user presses the close button on the UI (Top Right)
+    CloseCallback = function()
+        print("You closed the script !")
+    end
+})
+
+local Prompt = Window.NewPrompt({
+    Name = "Vanish Core Project",
+    Text = "this script was made by goss#7242",
+
+    Countdown = 5,
+
+    Accept = function()
+        print("Accepted.")
+    end,
+
+    Reject = function()
+        print("Rejected.")
+    end
+})
+
+--ui shit
+ 
+local Page = Window.NewPage({Text = "Main"})
+local Section = Page.NewSection({Text = "BloxF Guis"})
+
+
+local Button = Section.NewButton({
+    Text = "Murkuro Hub By Quartyz", 
+    Callback = function()
+    loadstring(game:HttpGet"https://raw.githubusercontent.com/xDepressionx/Free-Script/main/AllScript.lua")()
+    end, 
+    Description = "One of the best FREE blox fruits guis in the scripting community"
+})
+
+local Section = Page.NewSection({Text = "Admin Scripts"})
+
+local Button = Section.NewButton({
+    Text = "Fate Admin", 
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+    end, 
+    Description = "Well made FE admin script"
+})
+
+local Button = Section.NewButton({
+    Text = "Infinite Yield", 
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end, 
+    Description = "Well made FE admin script"
+})
+
+local Button = Section.NewButton({
+    Text = "CMD X", 
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source",true))()
+    end, 
+    Description = "Well made FE admin script"
+})
+
+local Button = Section.NewButton({
+    Text = "LX Admin v3", 
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/BloodyBurns/Hexx/main/Iv%20Admin/Admin.lua'))()    end, 
+    Description = "Well made FE admin script"
+})
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Ui editor
+local Page2 = Window.NewPage({Text = "Page 2"})
+
+local Section2 = Page2.NewSection({Text = "Section 2"})
+
+local Overrides = {}
+
+Section2.NewColorPicker({
+    Text = "Background", 
+    Callback = function(color)
+        Overrides.Background = color
+    end, 
+    Default = Window.WinTheme.Background
+})
+
+Section2.NewColorPicker({
+    Text = "Section Background", 
+    Callback = function(color)
+        Overrides.Section_Background = color
+    end, 
+    Default = Window.WinTheme.Section_Background
+})
+
+Section2.NewColorPicker({
+    Text = "Accent", 
+    Callback = function(color)
+        Overrides.Accent = color
+    end, 
+    Default = Window.WinTheme.Accent
+})
+
+Section2.NewColorPicker({
+    Text = "Dark Accent", 
+    Callback = function(color)
+        Overrides.Dark_Accent = color
+    end, 
+    Default = Window.WinTheme.Dark_Accent
+})
+
+Section2.NewColorPicker({
+    Text = "Light Borders", 
+    Callback = function(color)
+        Overrides.Light_Borders = color
+    end, 
+    Default = Window.WinTheme.Light_Borders
+})
+
+Section2.NewColorPicker({
+    Text = "Dark Borders", 
+    Callback = function(color)
+        Overrides.Dark_Borders = color
+    end, 
+    Default = Window.WinTheme.Dark_Borders
+})
+
+Section2.NewButton({
+    Text = "Update Theme", 
+    Callback = function()
+        Window.OverrideTheme(Overrides)
+    end
+})
+
+local ResetThemeButton = Window.NewUniversalButton({
+    Text = "Reset Theme", 
+    Callback = function()
+        print("Resetted !")
+        Window.ResetTheme()
+    end, 
+    Description = "This can be clicked multiple times !"
+})
